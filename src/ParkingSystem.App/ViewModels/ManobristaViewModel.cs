@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ParkingSystem.App.ViewModels
 {
@@ -15,8 +14,11 @@ namespace ParkingSystem.App.ViewModels
 		[Required(ErrorMessage = "O campo {0} é obrigatório.")]
 		[StringLength(14, ErrorMessage = "O campo {0} precisa ter entre {2} e {1} caracteres.", MinimumLength = 11)]
 		public string Cpf { get; set; }
+		[DisplayName("Data Nascimento")]
 		public DateTime DataNascimento { get; set; }
+		[DisplayName("Data Cadastro")]
 		public DateTime DataCadastro { get; set; }
+		[DisplayName("Data Alterado")]
 		public DateTime DataAlterado { get; set; }
 		[Required(ErrorMessage = "O campo {0} é obrigatório.")]
 		public bool Ativo { get; set; }
