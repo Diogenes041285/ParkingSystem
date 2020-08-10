@@ -16,6 +16,6 @@ namespace ParkingSystem.App.Models
 
         public DbSet<ParkingSystem.App.ViewModels.ManobristaViewModel> ManobristaViewModel { get; set; }
 
-        public DbSet<ParkingSystem.App.ViewModels.ManobraViewModel> ManobraViewModel { get; set; }
+        
     }
 }

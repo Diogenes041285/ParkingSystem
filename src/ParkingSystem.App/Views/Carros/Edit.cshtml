@@ -9,33 +9,56 @@
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Placa" class="control-label"></label>
-                <input asp-for="Placa" class="form-control" />
-                <span asp-validation-for="Placa" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Marca" class="control-label"></label>
-                <input asp-for="Marca" class="form-control" />
-                <span asp-validation-for="Marca" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Modelo" class="control-label"></label>
-                <input asp-for="Modelo" class="form-control" />
-                <span asp-validation-for="Modelo" class="text-danger"></span>
-            </div>            
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
-                </label>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
+		<form asp-action="Edit">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<input type="hidden" asp-for="Id" />
+			<div class="form-group">
+				<label asp-for="Placa" class="control-label"></label>
+				<input asp-for="Placa" class="form-control" />
+				<span asp-validation-for="Placa" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Marca" class="control-label"></label>
+				<input asp-for="Marca" class="form-control" />
+				<span asp-validation-for="Marca" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Modelo" class="control-label"></label>
+				<input asp-for="Modelo" class="form-control" />
+				<span asp-validation-for="Modelo" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ManobristaEntradaId" class="control-label"></label>
+				<select asp-for="ManobristaEntradaId" class="form-control" asp-items="@(new SelectList(Model.Manobristas, "Id", "Nome", ViewBag.ManobristaEntradaId))">
+					<option></option>
+				</select>
+			</div>
+
+			<div class="form-group">
+				<label asp-for="DataHoraEntrada" class="control-label"></label>
+				<input asp-for="DataHoraEntrada" class="form-control" />
+				<span asp-validation-for="DataHoraEntrada" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ManobristaSaidaId" class="control-label"></label>
+				<select asp-for="ManobristaSaidaId" class="form-control" asp-items="@(new SelectList(Model.Manobristas, "Id", "Nome", ViewBag.ManobristaSaidaId))">
+					<option></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label asp-for="DataHoraSaida" class="control-label"></label>
+				<input asp-for="DataHoraSaida" class="form-control" />
+				<span asp-validation-for="DataHoraSaida" class="text-danger"></span>
+			</div>
+			<div class="form-group form-check">
+				<label class="form-check-label">
+					<input class="form-check-input" asp-for="Ativo" /> @Html.DisplayNameFor(model => model.Ativo)
+				</label>
+			</div>
+			<div class="form-group">
+				<input type="submit" value="Save" class="btn btn-primary" />
+			</div>
+		</form>
     </div>
 </div>
 

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ParkingSystem.Data.Context;
 
 namespace ParkingSystem.Data.Migrations
 {
     [DbContext(typeof(SystemDbContext))]
-    partial class SystemDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200810015605_Alteração tabela carros")]
+    partial class Alteraçãotabelacarros
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -59,6 +61,34 @@ namespace ParkingSystem.Data.Migrations
                     b.ToTable("Carros");
                 });
 
+            modelBuilder.Entity("ParkingSystem.Model.Manobra", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("Ativo");
+
+                    b.Property<Guid>("CarroId");
+
+                    b.Property<DateTime?>("DataAlterado");
+
+                    b.Property<DateTime>("DataCadastro");
+
+                    b.Property<DateTime?>("DataHoraEntrada");
+
+                    b.Property<DateTime?>("DataHoraSaida");
+
+                    b.Property<Guid>("ManobristaId");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CarroId");
+
+                    b.HasIndex("ManobristaId");
+
+                    b.ToTable("Manobras");
+                });
+
             modelBuilder.Entity("ParkingSystem.Model.Manobrista", b =>
                 {
                     b.Property<Guid>("Id")
@@ -95,6 +125,17 @@ namespace ParkingSystem.Data.Migrations
                     b.HasOne("ParkingSystem.Model.Manobrista", "ManobristaSaida")
                         .WithMany("CarrosSaida")
                         .HasForeignKey("ManobristaSaidaId");
+                });
+
+            modelBuilder.Entity("ParkingSystem.Model.Manobra", b =>
+                {
+                    b.HasOne("ParkingSystem.Model.Carro", "Carro")
+                        .WithMany()
+                        .HasForeignKey("CarroId");
+
+                    b.HasOne("ParkingSystem.Model.Manobrista", "Manobrista")
+                        .WithMany()
+                        .HasForeignKey("ManobristaId");
                 });
 #pragma warning restore 612, 618
         }

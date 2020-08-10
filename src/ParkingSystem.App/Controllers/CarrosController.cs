@@ -15,17 +15,19 @@ namespace ParkingSystem.App.Controllers
 	public class CarrosController : Controller
 	{
 		private readonly ICarroRepository _carroRepository;
+		private readonly IManobristaRepository _manobristaRepository;
 		private readonly IMapper _mapper;
 
-		public CarrosController(ICarroRepository carroRepository, IMapper mapper)
+		public CarrosController(ICarroRepository carroRepository, IManobristaRepository manobristaRepository, IMapper mapper)
 		{
 			_carroRepository = carroRepository;
+			_manobristaRepository = manobristaRepository;
 			_mapper = mapper;
 		}
 
 		public async Task<IActionResult> Index()
 		{
-			return View(_mapper.Map<IEnumerable<CarroViewModel>>(await _carroRepository.ObterTodos()));
+			return View(_mapper.Map<IEnumerable<CarroViewModel>>(await _carroRepository.ObterCarrosManobristas()));
 		}
 
 		public async Task<IActionResult> Details(Guid id)
@@ -40,9 +42,11 @@ namespace ParkingSystem.App.Controllers
 			return View(carroViewModel);
 		}
 
-		public IActionResult Create()
+		public async Task<IActionResult> Create()
 		{
-			return View();
+			var carroViewModel = new CarroViewModel();
+			carroViewModel.Manobristas = _mapper.Map<IEnumerable<ManobristaViewModel>>(await _manobristaRepository.ObterTodos());
+			return View(carroViewModel);
 		}
 
 		[HttpPost]
@@ -67,6 +71,7 @@ namespace ParkingSystem.App.Controllers
 			}
 
 			var carroViewModel = _mapper.Map<CarroViewModel>(await _carroRepository.ObterPorId(id));
+			carroViewModel.Manobristas = _mapper.Map<IEnumerable<ManobristaViewModel>>(await _manobristaRepository.ObterTodos());
 			if (carroViewModel == null)
 			{
 				return NotFound();

@@ -18,7 +18,6 @@ namespace ParkingSystem.Api.ViewModels
 		[Required(ErrorMessage = "O campo {0} é obrigatório.")]
 		public DateTime DataCadastro { get; set; }
 		public DateTime DataAlterado { get; set; }
-		public virtual IList<ManobraViewModel> Manobras { get; set; }
 		[Required(ErrorMessage = "O campo {0} é obrigatório.")]
 		public bool Ativo { get; set; }
 	}

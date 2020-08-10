@@ -18,8 +18,6 @@ namespace ParkingSystem.App.ViewModels
 		public DateTime DataNascimento { get; set; }
 		public DateTime DataCadastro { get; set; }
 		public DateTime DataAlterado { get; set; }
-		[NotMapped]
-		public virtual IList<ManobraViewModel> Manobras { get; set; }
 		[Required(ErrorMessage = "O campo {0} é obrigatório.")]
 		public bool Ativo { get; set; }
 	}

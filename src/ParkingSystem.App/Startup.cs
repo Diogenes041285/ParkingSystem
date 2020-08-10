@@ -48,8 +48,7 @@ namespace ParkingSystem.App
 
 			services.AddScoped<SystemDbContext>();
 			services.AddScoped<ICarroRepository, CarroRepository>();
-			services.AddScoped<IManobristaRepository, ManobristaRepository>();
-			services.AddScoped<IManobraRepository, ManobraRepository>();		    		    
+			services.AddScoped<IManobristaRepository, ManobristaRepository>();		    
 
 		}
 

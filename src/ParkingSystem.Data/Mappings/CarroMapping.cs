@@ -22,6 +22,18 @@ namespace ParkingSystem.Data.Mappings
 				.IsRequired()
 				.HasColumnType("varchar(100)");
 
+			builder.Property(c => c.DataHoraEntrada).IsRequired(false);
+			builder.Property(c => c.DataHoraSaida).IsRequired(false);
+			builder.Property(c => c.ManobristaSaidaId).IsRequired(false);
+
+			builder.HasOne(c => c.ManobristaEntrada)
+				.WithMany(m => m.CarrosEntrada)
+				.HasForeignKey(m => m.ManobristaEntradaId);
+
+			builder.HasOne(c => c.ManobristaSaida)
+				.WithMany(m => m.CarrosSaida)
+				.HasForeignKey(m => m.ManobristaSaidaId);
+
 			builder.ToTable("Carros");
 		}
 	}

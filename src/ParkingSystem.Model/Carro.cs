@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ParkingSystem.Model
 {
@@ -7,7 +8,12 @@ namespace ParkingSystem.Model
 		public string Placa { get; set; }
 		public string Marca { get; set; }
 		public string Modelo { get; set; }
-		public virtual IList<Manobra> Manobras { get; set; }
+		public Guid ManobristaEntradaId { get; set; }
+		public Manobrista ManobristaEntrada { get; set; }
+		public Guid? ManobristaSaidaId { get; set; }
+		public Manobrista ManobristaSaida { get; set; }
+		public DateTime? DataHoraEntrada { get; set; }
+		public DateTime? DataHoraSaida { get; set; }
 
 	}
 }

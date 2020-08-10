@@ -9,7 +9,6 @@ namespace ParkingSystem.App.AutoMapper
 		public AutoMapperConfig()
 		{
 			CreateMap<Carro, CarroViewModel>().ReverseMap();
-			CreateMap<Manobra, ManobraViewModel>().ReverseMap();
 			CreateMap<Manobrista, ManobristaViewModel>().ReverseMap();
 		}
 	}

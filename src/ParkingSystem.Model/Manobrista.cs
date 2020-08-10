@@ -8,6 +8,7 @@ namespace ParkingSystem.Model
 		public string Nome { get; set; }
 		public string Cpf { get; set; }
 		public DateTime DataNascimento { get; set; }
-		public virtual IList<Manobra> Manobras { get; set; }
+		public virtual IList<Carro> CarrosEntrada { get; set; }
+		public virtual IList<Carro> CarrosSaida{ get; set; }
 	}
 }

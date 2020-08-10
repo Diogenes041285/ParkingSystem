@@ -11,7 +11,6 @@ namespace ParkingSystem.Data.Context
 	{
 		public SystemDbContext(DbContextOptions options) : base(options){}
 
-		public DbSet<Manobra> Manobras { get; set; }
 		public DbSet<Manobrista> Manobristas { get; set; }
 		public DbSet<Carro> Carros { get; set; }
 

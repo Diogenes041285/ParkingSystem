@@ -40,8 +40,6 @@ namespace ParkingSystem.Api
 			services.AddScoped<SystemDbContext>();
 			services.AddScoped<ICarroRepository, CarroRepository>();
 			services.AddScoped<IManobristaRepository, ManobristaRepository>();
-			services.AddScoped<IManobraRepository, ManobraRepository>();
-
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
