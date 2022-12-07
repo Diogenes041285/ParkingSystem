@@ -1,5 +1,7 @@
 # ParkingSystem
-Sistema de gereciamento de estacionamento
+Sistema de gereciamento de estacionamento.
+
+Projeto para mostrar de forma simples a utilização dos frameworks:
 
  - Net Core 2.2;
  - Entity Framework Core 2.2.6;
